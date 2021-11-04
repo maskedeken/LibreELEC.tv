@@ -29,7 +29,7 @@ diff -urN a/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts b/arch/a
 +		#address-cells = <1>;
 +		#size-cells = <0>;
 +
-+                eth_phy0: ethernet-phy@0 {
++                eth_phy0: ethernet-phy@3 {
 +			reg = <0>;
 +
 +			reset-assert-us = <10000>;
