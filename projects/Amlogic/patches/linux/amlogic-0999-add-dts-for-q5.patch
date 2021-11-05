@@ -1,6 +1,6 @@
 diff -urN a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
 --- a/arch/arm64/boot/dts/amlogic/Makefile	2021-10-27 07:56:57.000000000 +0000
-+++ b/arch/arm64/boot/dts/amlogic/Makefile	2021-11-05 01:03:53.367994337 +0000
++++ b/arch/arm64/boot/dts/amlogic/Makefile	2021-11-05 06:10:14.303601382 +0000
 @@ -10,6 +10,7 @@
  dtb-$(CONFIG_ARCH_MESON) += meson-g12b-odroid-n2.dtb
  dtb-$(CONFIG_ARCH_MESON) += meson-g12b-odroid-n2-plus.dtb
@@ -11,8 +11,8 @@ diff -urN a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/M
  dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-nexbox-a95x.dtb
 diff -urN a/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts b/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts
 --- a/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts	1970-01-01 00:00:00.000000000 +0000
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts	2021-11-05 01:03:27.999994879 +0000
-@@ -0,0 +1,99 @@
++++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts	2021-11-05 06:11:47.995599379 +0000
+@@ -0,0 +1,95 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2016 Andreas Färber
@@ -92,12 +92,8 @@ diff -urN a/arch/arm64/boot/dts/amlogic/meson-gxbb-digital-video-q5.dts b/arch/a
 +			reg = <0>;
 +
 +			reset-assert-us = <10000>;
-+			reset-deassert-us = <30000>;
++			reset-deassert-us = <10000>;
 +			reset-gpios = <&gpio GPIOZ_14 GPIO_ACTIVE_LOW>;
-+
-+			interrupt-parent = <&gpio_intc>;
-+			/* MAC_INTR on GPIOZ_15 */
-+			interrupts = <29 IRQ_TYPE_LEVEL_LOW>;
 +		};
 +	};
 +};
