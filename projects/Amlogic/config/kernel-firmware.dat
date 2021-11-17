@@ -9,3 +9,4 @@ rtlwifi/rtl8192eu_nic.bin
 rtl_bt/rtl8822cs_config.bin
 rtl_bt/rtl8822cs_fw.bin
 meson
+mt7601u.bin
