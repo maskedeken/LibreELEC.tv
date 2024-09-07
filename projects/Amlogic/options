@@ -12,7 +12,7 @@
     LINUX="amlogic"
 
   # Kernel target
-    KERNEL_TARGET="uImage.lzo"
+    KERNEL_TARGET="Image"
 
   # Kernel uImage load address
     KERNEL_UIMAGE_LOADADDR="0x1080000"

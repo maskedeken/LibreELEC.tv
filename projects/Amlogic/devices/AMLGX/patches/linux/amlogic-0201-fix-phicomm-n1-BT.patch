@@ -1,0 +1,30 @@
+diff -ur a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts	2024-08-12 12:10:15.807103126 +0800
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts	2024-08-12 12:12:09.647098481 +0800
+@@ -11,6 +11,10 @@
+ 	compatible = "phicomm,n1", "amlogic,s905d", "amlogic,meson-gxl";
+ 	model = "Phicomm N1";
+ 
++	aliases {
++		serial1 = &uart_A;
++	};
++
+ 	cvbs-connector {
+ 		status = "disabled";
+ 	};
+@@ -33,3 +37,15 @@
+ &usb {
+ 	dr_mode = "host";
+ };
++
++/* This is connected to the Bluetooth module: */
++&uart_A {
++	status = "okay";
++	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
++	pinctrl-names = "default";
++
++	bluetooth {
++		compatible = "brcm,bcm43438-bt";
++		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
++	};
++};

@@ -1,0 +1,47 @@
+diff -Nur a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+--- a/arch/arm64/boot/dts/amlogic/Makefile	2024-08-27 08:48:45.914998354 +0800
++++ b/arch/arm64/boot/dts/amlogic/Makefile	2024-08-27 08:50:11.045042669 +0800
+@@ -79,6 +79,7 @@
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-mecool-kiii-pro.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-minix-neo-u9h.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-nexbox-a1.dtb
++dtb-$(CONFIG_ARCH_MESON) += meson-gxm-phicomm-t1.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-q200.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-q201.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-rbox-pro.dtb
+diff -Nur a/arch/arm64/boot/dts/amlogic/meson-gxm-phicomm-t1.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-phicomm-t1.dts
+--- a/arch/arm64/boot/dts/amlogic/meson-gxm-phicomm-t1.dts	1970-01-01 08:00:00.000000000 +0800
++++ b/arch/arm64/boot/dts/amlogic/meson-gxm-phicomm-t1.dts	2024-08-27 08:48:15.411620711 +0800
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2016 Endless Computers, Inc.
++ * Author: Carlo Caione <carlo@endlessm.com>
++ * Create by flippy
++ */
++
++/dts-v1/;
++
++#include "meson-gxm-q201.dts"
++
++/ {
++	compatible = "phicomm,t1", "amlogic,meson-gxm";
++	model = "Phicomm T1";
++
++	aliases {
++		serial1 = &uart_A;
++	};
++};
++
++&uart_A {
++	status = "okay";
++	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++
++	bluetooth {
++		compatible = "brcm,bcm43438-bt";
++		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
++		max-speed = <2000000>;
++	};
++};
